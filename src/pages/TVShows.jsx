@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies, getGenres } from "../store";
 import { onAuthStateChanged } from "firebase/auth";
@@ -15,17 +15,17 @@ export default function Movies() {
   const movies = useSelector((state) => state.netflix.movies);
   const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
   const genres = useSelector((state) => state.netflix.genres);
-  const navigate = useNavigate();
+ 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getGenres());
-  },[]);
+  });
 
   useEffect(() => {
     if (genresLoaded) {
       dispatch(fetchMovies({ type: "tv" }));
     }
-  },[genresLoaded]);
+  });
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     // if (currentUser) setUser(currentUser.uid);

@@ -24,7 +24,7 @@ export default function UserListedMovies() {
     if (email) {
       dispatch(getUsersLikedMovies(email));
     }
-  }, [email]);
+  });
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);

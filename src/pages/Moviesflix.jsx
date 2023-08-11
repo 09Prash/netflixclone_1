@@ -14,16 +14,16 @@ export default function Moviesflix() {
   const navigate = useNavigate();
   const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
   const movies = useSelector((state) => state.netflix.movies);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getGenres());
-  },[]);
+  });
   useEffect(() => {
     if (genresLoaded) {
       dispatch(fetchMovies({ type: "all" }));
     }
-  },[genresLoaded]);
+  });
 
   const [isScrolled, setIsScrolled] = useState(false);
   window.onscroll = () => {
