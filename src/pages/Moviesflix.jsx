@@ -17,7 +17,7 @@ export default function Moviesflix() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getGenres());
+     dispatch(getGenres());
   });
   useEffect(() => {
     if (genresLoaded) {
@@ -53,7 +53,7 @@ export default function Moviesflix() {
               <FaPlay />
               Play
             </button>
-            <button className="flex j-center a-center">
+            <button className="flex j-center a-center" onClick={() => navigate("/")}>
               <AiOutlineInfoCircle />
               More Info
             </button>
